@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Existing plans {% endblock%}
+{% block content %}
+<div class='max-w-screen-md mx-auto bg-color-red font-white p-5 m-5 shadow-xl  rounded-xl border-b'>
+    <div>
+    <h1 class='text-center text-2xl font-bold text-teal-800'>You have plans already.</h1>
+    <p class='text center text-xl font-bold mb-5'> See your plans...</p>
+    </div>
+    <div class=''>
+      <h1 class='font-serif text-blue-900 font-bold font-2xl'>Diet Plan</h1>
+        <div class='rounded-xl w-full  m-2 p-4'>
+          <img src="{{ dietplan.image.url }}" alt="dietplan">
+        </div>
+        <div class='bg-gray-500 flex align-center shadow-xl rounded-xl w-full  mb-5 p-4'>
+          <p class=''> {{dietplan.description}} </p>
+        </div>
+        <div>
+            <h1 class='font-serif text-blue-900 font-bold font-2xl'>Exercise Plan</h1>
+            <div class='rounded-xl  w-full  m-2 p-4'>
+                <img src="{{ exerciseplan.image.url }}" alt="exerciseplan">
+            </div>
+            <div class='bg-gray-500 flex align-center shadow-xl rounded-xl w-full  mb-5 p-4'>
+                <p class=''> {{exerciseplan.description}} </p>
+              </div>
+        </div>
+  </div>
+{% endblock%}

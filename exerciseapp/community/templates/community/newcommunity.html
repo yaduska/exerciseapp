@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% block title %} New Community {% endblock%}
+{% block content %}
+<div class='max-w-screen-md mx-auto '>
+    <form method='post' action='.'>
+        {% csrf_token %}
+        <div class='mb-8'>
+        {{ community_form.as_p }}
+        </div>
+        <div class='mt-8'>
+        {{ message_form.as_p }}
+        </div>
+            <button class='py-4 px-8 text-md  bg-teal-500 rounded-xl hover:bg-teal-700 mt-3 mb-6'>submit</button>
+                
+            </form>
+</div>
+   
+{% endblock %}

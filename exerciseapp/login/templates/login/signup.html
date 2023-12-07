@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% block title %} Signup {% endblock%}
+{% block content %}
+<form method='post' action='.'  class='mx-6 my-6 px-5 py-5'>
+     {% csrf_token %}
+     <div class='' >
+        <label class='rounded-lg font-bold'> Username </label><br/><br/>
+        {{signupForm.username}}
+        <br/><br/>
+     </div>
+     <div class='' >
+        <label class='rounded-lg font-bold'> Email </label></br><br/>
+        {{signupForm.email}}
+        <br/><br/>
+     </div>
+     <div class='' >
+        <label class='rounded-lg font-bold'> Password </label></br><br/>
+        {{signupForm.password1}}
+        <br/><br/>
+     </div>
+     <div class='' >
+        <label class='rounded-lg font-bold'> Confirm Password </label></br><br/>
+        {{signupForm.password2}}
+        <br/><br/>
+     </div>
+     {% if signupForm.error or signupForm.non_field_errors  %}
+     <div class='mb-3 p-6 rounded-xl bg-red-700'>
+         {% for field in signupForm %}
+         {{ signupForm.error }}
+         {% endfor %}
+         {{ signupForm.non_field_errors }}
+     </div>
+     {% endif %} 
+     <button class='rounded-lg bg-teal-700 hover:bg-teal-900 mt-6 mb-6  p-4 text-md' type='submit' >Submit</button>
+</form>
+{% endblock%}

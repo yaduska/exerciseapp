@@ -1,0 +1,72 @@
+
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} UserDetail Form {% endblock%}
+{% block content %}
+<div class='max-w-screen-md mx-auto'>
+{% comment %} <div class="bg-teal-800 w-full text-white p-4 rounded-md mb-8 opacity-100 transition-opacity duration-2000 ease-out" id="myAlert">
+    <p>Please fill this form to get the plan!</p>
+</div>
+<script>
+    setTimeout(function() {
+        document.getElementById('myAlert').style.opacity = '0';
+    }, 3000);  // Set the time in milliseconds (e.g., 3000 for 3 seconds)
+</script> {% endcomment %}
+
+<div>
+<h1 class ='text-teal-800 p-3 m-3 font-serif font-bold text-2xl'> UserDetail Form</h1>
+</div>
+<form action='.' method='post' class='m-3 p-4 rounded-xl w-1/2 '>
+    {% csrf_token %}
+    <div >
+    <label class=''>Gender</label></br></br>
+    {{form.gender}}
+</br></br>
+    </div>
+    <div >
+        <label class=''>Age</label></br></br>
+        {{form.age}}
+    </br></br>
+    </div>
+    <div >
+            <label class=''>Height</label></br></br>
+            {{form.height}}
+        </br></br>
+    </div>  
+    <div >
+        <label class=''>Weight</label></br></br>
+        {{form.weight}}
+    </br></br>
+        </div> 
+        <div >
+            <label class=''>Workout time</label></br></br>
+            {{form.workout_time}}
+        </br></br>
+            </div>
+            <div >
+                <label class=''>Preferred workout time</label></br></br>
+                {{form.preferred_workout_time}}
+            </br></br>
+                </div>
+                {% if form.error or form.non_field_errors  %}
+                <div class='mb-3 p-6 rounded-xl bg-red-700'>
+                    {% for field in form %}
+                    {{ field.error }}
+                    {% endfor %}
+                    {{ form.non_field_errors }}
+                </div>
+                {% endif %}
+                <button class='py-4 px-8 text-md  bg-teal-500 rounded-xl hover:bg-teal-700 mt-3 mb-6 shadow-xl'>submit</button>
+</form>
+{% else %}
+<div class='bg-color-red font-white p-5 m-5 shadow-xl  rounded-xl border-b'>
+    <div>
+    <h1 class='text-center text-2xl'>Please login to get a plan</h1>
+    </div>
+    <div class='flex justify-center m-5'> 
+    <a href='{% url 'login:login' %}' class='py-2 px-3 text-md font-bold bg-teal-500 rounded-lg hover:bg-teal-700 shadow-xl'>login</a>
+</div>
+</div>
+
+</div>
+{% endblock %}

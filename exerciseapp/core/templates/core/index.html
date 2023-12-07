@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock%}
+{% block content %}
+<div class='bg-gray-500 rounded-lg shadow-xl mt-3 mb-6 py-3 max-w-screen-md mx-auto'>
+    <img src='{% static "images/banner.jpg" %}' alt='banner image' >
+    <h1 class='text-black-900 text-center font-bold py-3 text-xl font-sans'> Join us for a healthy lifestyle &#x1F60D;</h1>
+</div>
+<div class="max-w-screen-md mx-auto  mt-8">
+    <h1 class="text-2xl font-bold mb-4 hover:animate-pulse ">What users say...</h1>
+<div class='bg-gray-600 mb-6 mt-3 px-4 py-4 rounded-lg shadow-xl animate-none'>
+    {% for customer in customers %}
+    <div class='bg-gray-500 mb-6 mt-3 px-4 py-4 rounded-lg shadow-lg'>
+        <h1 class='font-bold text-black font-sans'>{{customer.customer_name}}</h1>
+        <p class='font-semibold font-serif'>{{customer.customer_review}}</p>
+       
+    </div>
+ {% endfor %}
+</div>
+</div>
+{% comment %} <div class='max-w-screen-md mx-auto'>
+<div class="flex items-center justify-center bg-blue-500 w-12 h-12 rounded-full">
+    <svg class="w-6 h-6 text-white transform rotate-270 animate-bounce">
+      <!-- Down arrow icon -->
+      <path d="M19 13l-7 7-7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div> {% endcomment %}
+<div class="max-w-screen-md mx-auto mb-5 mt-8 text-black">
+    <h1 class='text-3xl font-bold mt-5 mb-5 text-center font-serif'> What we provide</h1>
+    <div class='flex justify  space-x-8 mt-6 mb-10 text-center'>
+        <div class='w-1/2 bg-gray-300 shadow-xl'>
+            <img src='{% static 'images/diet.jpg' %}'>
+            <p class='text-lg font-semibold'>Diet Plan</p>
+        </div>
+        <div class='w-1/2 bg-gray-300 shadow-xl '>
+            <img src='{% static 'images/workout.jpg' %}'>
+            <p class='text-lg font-semibold'>Workout Plan</p>
+        </div>
+        
+    </div>
+    <h1 class= 'font-mono font-bold text-2xl text-teal-800 '>We give plans according to your choices...</h1>
+</div>
+
+  
+  
+{% endblock %}

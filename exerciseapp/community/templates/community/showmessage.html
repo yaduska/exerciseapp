@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block title %} Show message {% endblock%}
+{% block content %}
+<div class='max-w-screen-md mx-auto '>
+    <div class='bg-gray-800 font-serif p-6 mt-6 mb-6 rounded-xl shadow-xl w-full'>
+        <h1 class='text-2xl text-center'>{{community.topic}} </h1>
+    </div>
+    <div class=''>
+        {% for message in messages %}
+    <p class='mb-2'><strong>{{message.created_by.username}}</strong> @ {{message.created_at}}</p>
+        {{message.content}}</br><br>
+        {% endfor %}
+        </div>
+        
+
+<form method='post' action='.'  >
+    {% csrf_token %}
+    <label class='font-bold'> Type message below</label></br>
+    {{form.content}}
+</br><br>
+    <button class='mt-2 py-2 px-4 text-md bg-teal-500 rounded-md text-white' type='submit'>Submit</button>
+</form>
+</div>
+{% endblock %}
